@@ -78,7 +78,7 @@ $(function() {
     $('#output').text(outputText);
   });
 
-      $('#one').click(function() {
+      $('#nine').click(function() {
     var outputText = $('#output').text() + '9';
     if (outputText === '09') {
       outputText = '9';
@@ -133,7 +133,7 @@ $(function() {
 
   $('#equals').click(function() {
     // FIXME
-    var res = eval('outputText');
+    var res = eval('stuffhere');
     $('#output').text(res);
   });
 
