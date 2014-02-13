@@ -6,7 +6,7 @@ $(function() {
 
   $('#zero').click(function() {
     var outputText = $('#output').text() + '0';
-    if (outputText === '00') {
+    if (outputText === '0') {
       outputText = '0';
     }
     $('#output').text(outputText);
@@ -109,7 +109,7 @@ $(function() {
     }
   });
 
-  $('div').click(function() {
+  $('#div').click(function() {
     if (notLastOp()){
       var outputText = $('#output').text() + '/';
       $('#output').text(outputText);
