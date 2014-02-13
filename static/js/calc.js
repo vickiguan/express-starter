@@ -133,7 +133,7 @@ $(function() {
 
   $('#equals').click(function() {
     // FIXME
-    var res = eval('('#output').text');
+    var res = eval('('#output')');
     $('#output').text(res);
   });
 
