@@ -29,12 +29,11 @@ $(function() {
     $('#output').text(outputText);
   });
 
-  $('#three').click(function() {
+ $('#three').click(function() {
     var outputText = $('#output').text() + '3';
-    if (outputText === 'O3') {
-      outputText = '3'
+    if (outputText === '03') {
+      outputText = '3';
     }
-    // FIXME
     $('#output').text(outputText);
   });
 
