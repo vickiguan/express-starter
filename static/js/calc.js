@@ -133,7 +133,7 @@ $(function() {
 
   $('#equals').click(function() {
     // FIXME
-    var res = eval('4*10+7');
+    var res = eval('outputText');
     $('#output').text(res);
   });
 
