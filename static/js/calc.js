@@ -124,10 +124,10 @@ $(function() {
   });
 
   $('#square').click(function() {
-    var outputText = $('#output').text() + '*#output';
+    var outputText = $('#output').text();
     var outputNum = parseFloat(eval(outputText));
     // FIXME
-    var newNum = ;
+    var newNum = Math.sqrt(outputNum);
     $('#output').text(newNum);
   });
 
