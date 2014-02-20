@@ -17,7 +17,9 @@ $('#reappear').click(function() {
 
 
 // Problem 3 (Tickle Me Pink) -----------------------------------------------
-// WRITE CODE HERE
+$('#tickleMePink').click(function() {
+  $('#tickleMePink').css('color','pink');
+});
 
 
 // Problem 4 (Greet Me) -----------------------------------------------------
