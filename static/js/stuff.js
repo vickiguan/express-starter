@@ -24,6 +24,6 @@ $('#tickleMePink').click(function() {
 
 // Problem 4 (Greet Me) -----------------------------------------------------
 $('#greetMe').click(function() {
-  alert('Hey');
+  alert('Hey'+$('#my_name').val());
 });
 
