@@ -23,4 +23,5 @@ $('#tickleMePink').click(function() {
 
 
 // Problem 4 (Greet Me) -----------------------------------------------------
-// WRITE CODE HERE
+alert('Whassup '$('#my_name').val()'');
+
