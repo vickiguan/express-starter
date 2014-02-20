@@ -1,9 +1,9 @@
 alert('Welcome to my stuff page!'); // edit me!
 
 // Problem 1 (Say Hello!) ---------------------------------------------------
-$('#say_hello').click(function() {
+$('#say_hello').click(function(alert('Hello Whirled!')) {
   // WRITE CODE HERE
-});alert('Hello Whirled!')
+});
 
 
 // Problem 2 (Houdini) ------------------------------------------------------
