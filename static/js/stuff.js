@@ -2,17 +2,17 @@ alert('Welcome to my stuff page!'); // edit me!
 
 // Problem 1 (Say Hello!) ---------------------------------------------------
 $('#say_hello').click(function() {
-  alert('Hello World')
+  alert('Hello World');
 });
 
 
 // Problem 2 (Houdini) ------------------------------------------------------
 $('#disappear').click(function() {
-  //WRITE CODE HERE
+  $('#disappear').hide();
 });
 
 $('#reappear').click(function() {
-  //WRITE CODE HERE
+  $('#disappear').show();
 });
 
 
