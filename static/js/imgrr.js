@@ -3,9 +3,6 @@ $('#toggle_img').click(function() {
   $('#main_img').hide();
 });
 
-$('#toggle_img').click(function() {
-  $('#main_img').show();
-});
 
 // Problem 3 (Swap Em) -----------------------------------------------
 // WRITE CODE HERE
