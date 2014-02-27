@@ -4,7 +4,10 @@ $('#toggle_img').click(function() {
   $('#toggle_img').text('Come Back!');
 });
 
-
+$('#toggle_img').click(function() {
+  $('#main_img').show();
+  $('#toggle_img').text('Go Away!');
+});
 
 
 // Problem 3 (Swap Em) -----------------------------------------------
