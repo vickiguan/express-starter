@@ -1,19 +1,16 @@
 // Problem 2 (Peekaboo) ------------------------------------------------------
 
-$('#toggle_img').click(
-	if ($('#toggle_img').text()==='Go Away!'{
-	function() 
-  $('#main_img').hide();
-  $('toggle_img').text('Come Back!');
-});
-
-
-$('#toggle_img').click(
-	else{
-	function() 
+$('#toggle_img').click(function() {
+	if ($('#toggle_img').text()==='Go Away!'){
+	$('#main_img').hide();
+	  $('toggle_img').text('Come Back!');
+	} 
+  else{ 
   $('#main_img').show();
   $('toggle_img').text('Go Away!');
+	}
 });
+
 
 
 
