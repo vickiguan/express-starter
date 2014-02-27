@@ -11,8 +11,8 @@ $('#toggle_img').click(
 $('#toggle_img').click(
 	else{
 	function() 
-  $('#main_img').hide();
-  $('toggle_img').text('Come Back!');
+  $('#main_img').show();
+  $('toggle_img').text('Go Away!');
 });
 
 
