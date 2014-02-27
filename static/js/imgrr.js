@@ -3,7 +3,6 @@ $('#toggle_img').click(function() {
   $('/static/img/gorilla.jpg').hide();
 });
 
-$('#toggle_img').text('Come back!')
 
 $('#toggle_img').click(function() {
   $('#/static/img/gorilla.jpg').show();
