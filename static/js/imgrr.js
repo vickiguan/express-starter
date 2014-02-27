@@ -4,9 +4,11 @@ $('#toggle_img').click(function() {
   $('#toggle_img').text('Come Back!');
 });
 
-$('#toggle_img').click(function() {
+toggle_img=toggleImg
+
+$('#toggleImg').click(function() {
   $('#main_img').show();
-  $('#toggle_img').text('Go Away!');
+  $('#toggleImg').text('Go Away!');
 });
 
 
