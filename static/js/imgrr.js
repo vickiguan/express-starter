@@ -1,11 +1,10 @@
 // Problem 2 (Peekaboo) ------------------------------------------------------
-$('#toggle_img').click(function() {
-  $('/static/img/gorilla.jpg').hide();
+$('#toggle_img').click(function($('#toggle_img').text('Come Back!')) {
+  $('#main_img').hide();
 });
 
-
 $('#toggle_img').click(function() {
-  $('#/static/img/gorilla.jpg').show();
+  $('#main_img').show();
 });
 
 // Problem 3 (Swap Em) -----------------------------------------------
