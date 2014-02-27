@@ -1,6 +1,6 @@
 // Problem 2 (Peekaboo) ------------------------------------------------------
-
-$('#toggle_img').click(function(if text='Go Away!') {
+if ('#toggle_img'==='Come Back!')
+$('#toggle_img').click(function() {
   $('#main_img').hide();
   $('#toggle_img').text('Come Back!');
 });
