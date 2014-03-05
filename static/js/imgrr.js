@@ -24,4 +24,6 @@ $('.clickable').click(function() {
 });
 
 // Problem 5 (Imgrr) -------------------------------------------------
-// WRITE CODE HERE
+$('.clickable').click(function() {
+	$('#second_img').attr('src',$(this).attr('src'))
+});
