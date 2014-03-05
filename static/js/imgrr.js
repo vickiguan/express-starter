@@ -13,7 +13,6 @@ $('#toggle_img').click(function() {
 
 
 
-
 // Problem 3 (Swap Em) -----------------------------------------------
 $('#change_img').click(function() {
 	$('#main_img').attr('src','/static/img/'+$('#new_img_file').val())
@@ -21,7 +20,7 @@ $('#change_img').click(function() {
 
 // Problem 4 (Find the Source) -------------------------------------------------
 $('.clickable').click(function() {
-  // WRITE CODE HERE
+	alert($(this).attr('src'))
 });
 
 // Problem 5 (Imgrr) -------------------------------------------------
