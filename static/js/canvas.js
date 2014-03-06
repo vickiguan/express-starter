@@ -69,5 +69,24 @@ $(document).ready(function() {
   	context.fill()
   });
 
+  $('#p9').click(function() {
+ 	for (var i=1; i<=5; i++) {
+ 		context.strokeRect(0, 0, 50*i, 50)
+ 	}
+  });
+
+  $('#p9').click(function() {
+ 	for (var i=1; i<=5; i++) {
+ 		context.strokeRect(0, 0, 50*i, 50)
+ 	}
+  });
+
+  $('#p10').click(function() {
+ 	for (var i=1; i<=100; i++) {
+ 		context.strokeRect(0, 0, 5*i, 5)
+ 	}
+  });
+
+
 
 });
