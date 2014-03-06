@@ -40,4 +40,34 @@ $(document).ready(function() {
   	context.stroke()
   });
 
+  $('#p6').click(function() {
+  	context.beginPath()
+  	context.strokeStyle='green'
+  	context.strokeRect(80, 30, 20, 57)
+  	context.closePath()
+  	context.stroke()
+  });
+
+
+  $('#p7').click(function() {
+  	context.beginPath()
+  	context.strokeStyle='red'
+  	context.arc(50, 100, 15,0, Math.PI)
+  	context.arc(50, 100, 15, Math.PI, 0)
+  	context.closePath()
+  	context.fillStyle='red'
+  	context.fill()
+  });
+
+  $('#p8').click(function() {
+  	context.beginPath()
+  	context.strokeStyle='blue'
+  	context.strokeRect(80, 80, 40, 40)
+  	context.fillStyle='yellow'
+  	context.fillRect(80, 80, 40, 40)
+  	context.closePath()
+  	context.fill()
+  });
+
+
 });
