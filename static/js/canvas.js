@@ -87,6 +87,25 @@ $(document).ready(function() {
  	}
   });
 
+  $('#p11').click(function() {
+ 	for (var i=1; i<=100; i++) {
+ 		for (var j=1; j<=100; j++) {
+ 		context.strokeRect(0, 0, 5*i, 5*j)
+ 		}
+ 	}
+  });
+
+  $('#p12').click(function() {
+  	for (var i=1; i<=20; i++) {
+  	context.beginPath()
+  	context.arc(50, 50, 15*i, 0, 2*Math.PI)
+  	context.closePath()
+  	context.stroke()
+	  }
+  });
+
+
+
 
 
 });
