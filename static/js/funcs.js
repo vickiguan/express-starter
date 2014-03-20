@@ -1,4 +1,4 @@
-$(document).ready(function() {
+j$(document).ready(function() {
   //this is how we acquire control of the canvas
   var canvas = document.getElementById('canvas');
   var context = canvas.getContext("2d");
@@ -8,7 +8,7 @@ $(document).ready(function() {
   });
 
   var drawSquare = function(x, y, sideLen, color) {
-    context.strokeStyle= color
+    context.strokeStyle= color;
     context.strokeRect(x, y, sideLen, sideLen)
     context.stroke()
   };
