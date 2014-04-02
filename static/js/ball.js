@@ -57,7 +57,7 @@ $(document).ready(function() {
     context.fill();
     context.stroke();
 
-    setTimeout(updateGame, 50);
+    setTimeout(updateGame, 10);
 
 
   };
