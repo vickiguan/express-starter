@@ -29,15 +29,24 @@ $(document).ready(function() {
     context.stroke();
 
 
-    ball.x += vx
-    ball.y += vy
+    ball.x += ball.vx
+    ball.y += ball.vy
 
-    if ((ball.xv>0 && ball.x+2*ball.r>=canvas.width)) {
-    ball.xv=-ball.xv
+    if ((ball.vx>0 && ball.x+ball.r>=canvas.width)) {
+    ball.vx=-ball.vx
     }
 
-    if ((ball.xv<0 && ball.x<=0)) {ball.xv=-ball.xv;
+    if ((ball.vx<0 && ball.x-ball.r<=0)) {ball.vx=-ball.vx;
     }
+
+    if ((ball.vy>0 && ball.y+ball.r>=canvas.height)) {
+    ball.vy=-ball.vy
+    }
+
+    if ((ball.vy<0 && ball.y-ball.r<=0)) {ball.vy=-ball.vy;
+    }
+
+
 
 
     context.beginPath()
@@ -48,7 +57,7 @@ $(document).ready(function() {
     context.fill();
     context.stroke();
 
-    setTimeout(updateGame, 10);
+    setTimeout(updateGame, 50);
 
 
   };
