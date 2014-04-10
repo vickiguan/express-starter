@@ -18,21 +18,21 @@ $(document).ready(function() {
 
  
   var b1 = {
-    x: 40,
-    y: 40,
-    r: 15,
+    x: 240,
+    y: 240,
+    r: 55,
     vx:0,
     vy:0
 };
 
 
    var b2= {
-  x:125,
-  y:150,
-  r:50,
-  vx:0,
-  vy:0
-  };
+    x:125,
+    y:150,
+    r:50,
+    vx:0,
+    vy:0
+ };
 
 
 balls.push(b0);
@@ -45,34 +45,20 @@ balls.push(b2);
   // Run an interation of the game
   var updateGame = function() {
 
-    context.beginPath()
+    for (var i=0; i<balls.length; i++) {
+
+     context.beginPath()
     context.strokeStyle='#77D5F2'
-    context.arc(balls[0].x, balls[0].y, balls[0].r, 0, 2*Math.PI)
+    context.arc(balls[i].x, balls[i].y, balls[i].r, 0, 2*Math.PI)
     context.closePath()
     context.fillStyle='#77D5F2'
     context.fill();
-    context.stroke();
+    context.stroke();  
+    }
 
-    context.beginPath()
-    context.strokeStyle='#77D5F2'
-    context.arc(balls[1].x, balls[1].y, balls[1].r, 0, 2*Math.PI)
-    context.closePath()
-    context.fillStyle='#77D5F2'
-    context.fill();
-    context.stroke();
+    
 
-    context.beginPath()
-    context.strokeStyle='#77D5F2'
-    context.arc(balls[2].x, balls[2].y, balls[2].r, 0, 2*Math.PI)
-    context.closePath()
-    context.fillStyle='#77D5F2'
-    context.fill();
-    context.stroke();
-
-
-
-
- 
+ }
   // Handle a canvas click event
   $('#game_canvas').click(function(e) {
     // Find the mouse x and y relative to the top-left corner of the canvas
@@ -82,4 +68,5 @@ balls.push(b2);
   });
 
   updateGame();
+
 });
