@@ -9,15 +9,17 @@ $(document).ready(function() {
 
   var numBalls = 10;
   var balls= [];
- 
+  var reactions= [];
+
+
  for(i=0; i<numBalls; i++) {
  
   var b0 = {
     x: width*Math.random(),
     y: height*Math.random(),
     r: 50*Math.random(),
-    vx:25*Math.random()-Math.random(),
-    vy:25*Math.random()-Math.random()
+    vx:10*Math.random()-Math.random(),
+    vy:10*Math.random()-Math.random()
 };
 
 balls.push(b0);
@@ -73,7 +75,7 @@ balls.push(b0);
     context.closePath() 
     }
 
-      setTimeout(updateGame, 50);
+requestAnimationFrame(updateGame);
 
  }
   // Handle a canvas click event
@@ -90,8 +92,8 @@ balls.push(b0);
     x: e.pageX - $(this).offset().left,
     y: e.pageY - $(this).offset().top,
     r: 50*Math.random(),
-    vx:25*Math.random()-Math.random(),
-    vy:25*Math.random()-Math.random()
+    vx:15*Math.random()-Math.random(),
+    vy:15*Math.random()-Math.random()
 };
 
 balls.push(b0);
