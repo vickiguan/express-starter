@@ -7,7 +7,7 @@ $(document).ready(function() {
 
   // PUT STUFF HERE
 
-  var numBalls = 100*Math.random();
+  var numBalls = 10;
   var balls= [];
  
  for(i=0; i<numBalls; i++) {
@@ -83,6 +83,19 @@ balls.push(b0);
     var y = e.pageY - $(this).offset().top;
     // PUT STUFF HERE
 
+
+ for(i=0; i<1; i++) {
+ 
+  var b0 = {
+    x: e.pageX - $(this).offset().left,
+    y: e.pageY - $(this).offset().top,
+    r: 50*Math.random(),
+    vx:25*Math.random()-Math.random(),
+    vy:25*Math.random()-Math.random()
+};
+
+balls.push(b0);
+ }
 
 
   });
