@@ -12,8 +12,8 @@ $(document).ready(function() {
     x: 20,
     y: 20,
     r: 20,
-    vx:0,
-    vy:0
+    vx:5,
+    vy:5
 };
 
  
@@ -21,8 +21,8 @@ $(document).ready(function() {
     x: 240,
     y: 240,
     r: 55,
-    vx:0,
-    vy:0
+    vx:20,
+    vy:20
 };
 
 
@@ -30,10 +30,16 @@ $(document).ready(function() {
     x:125,
     y:150,
     r:50,
-    vx:0,
-    vy:0
+    vx:30,
+    vy:30
  };
 
+
+  var rect = {};
+    rect.x = 0;
+    rect.y = 0;
+    rect.w = 1000;
+    rect.h =1000;
 
 balls.push(b0);
 balls.push(b1);
@@ -45,9 +51,35 @@ balls.push(b2);
   // Run an interation of the game
   var updateGame = function() {
 
+  for (var i=0; i<balls.length; i++) {
+
+    context.fillStyle='white'
+    context.fillRect(rect.x, rect.y, rect.w, rect.h)
+    context.fill();
+    context.stroke();
+
+
+    balls[i].x += balls[i].vx
+    balls[i].y += balls[i].vy
+
+    if ((balls[i].vx>0 && balls[i].x+balls[i].r>=canvas.width)) {
+    balls[i].vx=-balls[i].vx
+    }
+
+    if ((balls[i].vx<0 && balls[i].x-balls[i].r<=0)) {balls[i].vx=-balls[i].vx;
+    }
+
+    if ((balls[i].vy>0 && balls[i].y+balls[i].r>=canvas.height)) {
+    balls[i].vy=-balls[i].vy
+    }
+
+    if ((balls[i].vy<0 && balls[i].y-balls[i].r<=0)) {balls[i].vy=-balls[i].vy;
+    }
+};
+
     for (var i=0; i<balls.length; i++) {
 
-     context.beginPath()
+    context.beginPath()
     context.strokeStyle='#77D5F2'
     context.arc(balls[i].x, balls[i].y, balls[i].r, 0, 2*Math.PI)
     context.closePath()
@@ -56,7 +88,7 @@ balls.push(b2);
     context.stroke();  
     }
 
-    
+      setTimeout(updateGame, 50);
 
  }
   // Handle a canvas click event
@@ -65,7 +97,11 @@ balls.push(b2);
     var x = e.pageX - $(this).offset().left;
     var y = e.pageY - $(this).offset().top;
     // PUT STUFF HERE
+
+
+
   });
+
 
   updateGame();
 
