@@ -6,44 +6,30 @@ $(document).ready(function() {
   var height = canvas.height;
 
   // PUT STUFF HERE
-  var balls= [];
 
+  var numBalls = 100*Math.random();
+  var balls= [];
+ 
+ for(i=0; i<numBalls; i++) {
+ 
   var b0 = {
-    x: 20,
-    y: 20,
-    r: 20,
-    vx:5,
-    vy:5
+    x: width*Math.random(),
+    y: height*Math.random(),
+    r: 50*Math.random(),
+    vx:25*Math.random()-Math.random(),
+    vy:25*Math.random()-Math.random()
 };
+
+balls.push(b0);
+ }
 
  
-  var b1 = {
-    x: 240,
-    y: 240,
-    r: 55,
-    vx:20,
-    vy:20
-};
-
-
-   var b2= {
-    x:125,
-    y:150,
-    r:50,
-    vx:30,
-    vy:30
- };
-
-
   var rect = {};
     rect.x = 0;
     rect.y = 0;
     rect.w = 1000;
     rect.h =1000;
 
-balls.push(b0);
-balls.push(b1);
-balls.push(b2);
 
 
 
@@ -56,7 +42,7 @@ balls.push(b2);
     context.fillStyle='white'
     context.fillRect(rect.x, rect.y, rect.w, rect.h)
     context.fill();
-    context.stroke();
+    
 
 
     balls[i].x += balls[i].vx
@@ -82,10 +68,9 @@ balls.push(b2);
     context.beginPath()
     context.strokeStyle='#77D5F2'
     context.arc(balls[i].x, balls[i].y, balls[i].r, 0, 2*Math.PI)
-    context.closePath()
     context.fillStyle='#77D5F2'
     context.fill();
-    context.stroke();  
+    context.closePath() 
     }
 
       setTimeout(updateGame, 50);
