@@ -9,7 +9,7 @@ $(document).ready(function() {
 
   var numBalls = 10;
   var balls= [];
-  var reactions= [];
+  var reactions=[];
 
 
  for(i=0; i<numBalls; i++) {
@@ -39,6 +39,8 @@ balls.push(b0);
   // Run an interation of the game
   var updateGame = function() {
 
+
+
   for (var i=0; i<balls.length; i++) {
 
     context.fillStyle='white'
@@ -49,6 +51,8 @@ balls.push(b0);
 
     balls[i].x += balls[i].vx
     balls[i].y += balls[i].vy
+
+
 
     if ((balls[i].vx>0 && balls[i].x+balls[i].r>=canvas.width)) {
     balls[i].vx=-balls[i].vx
@@ -63,7 +67,18 @@ balls.push(b0);
 
     if ((balls[i].vy<0 && balls[i].y-balls[i].r<=0)) {balls[i].vy=-balls[i].vy;
     }
+
+
+
 };
+
+      for (var i=0; i<reactions.length; i++) {
+      if (reactions[i].r<30) {
+        reactions[i].r++
+        }
+       };
+
+
 
     for (var i=0; i<balls.length; i++) {
 
@@ -75,6 +90,9 @@ balls.push(b0);
     context.closePath() 
     }
 
+
+
+
 for (var i =0; i<reactions.length; i++) {
   
     context.beginPath()
@@ -84,6 +102,8 @@ for (var i =0; i<reactions.length; i++) {
     context.fill();
     context.closePath() 
   };
+
+
 
 requestAnimationFrame(updateGame);
 
@@ -96,16 +116,21 @@ requestAnimationFrame(updateGame);
     // PUT STUFF HERE
 
 
+
  for(i=0; i<1; i++) {
  
   var b0 = {
     x:e.pageX - $(this).offset().left,
     y:e.pageY - $(this).offset().top,
-    r: 30
+    r: 1
+
+
 };
+
 
 reactions.push(b0);
  };
+
 
 
   });
