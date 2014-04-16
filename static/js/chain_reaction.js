@@ -75,6 +75,16 @@ balls.push(b0);
     context.closePath() 
     }
 
+for (var i =0; i<reactions.length; i++) {
+  
+    context.beginPath()
+    context.strokeStyle='#77D5F2'
+    context.arc(reactions[i].x, reactions[i].y, reactions[i].r, 0, 2*Math.PI)
+    context.fillStyle='#77D5F2'
+    context.fill();
+    context.closePath() 
+  };
+
 requestAnimationFrame(updateGame);
 
  }
@@ -89,15 +99,13 @@ requestAnimationFrame(updateGame);
  for(i=0; i<1; i++) {
  
   var b0 = {
-    x: e.pageX - $(this).offset().left,
-    y: e.pageY - $(this).offset().top,
-    r: 50*Math.random(),
-    vx:15*Math.random()-Math.random(),
-    vy:15*Math.random()-Math.random()
+    x:e.pageX - $(this).offset().left,
+    y:e.pageY - $(this).offset().top,
+    r: 30
 };
 
-balls.push(b0);
- }
+reactions.push(b0);
+ };
 
 
   });
