@@ -39,6 +39,19 @@ balls.push(b0);
   // Run an interation of the game
   var updateGame = function() {
 
+  for (var i = 0; i < balls.length; i++) {
+        for (var j = 0; j < reactions.length; j++) {
+               var xdiff= balls[i].x-reactions[j].x;
+               var ydiff= balls[i].y-reactions[j].y;
+               var dist = Math.sqrt(xdiff * xdiff + ydiff * ydiff)
+               if (dist<balls[i].r+reactions[j].r) {
+                console.log('Wha-pow!');
+              }
+
+        }
+}
+
+
 
 
   for (var i=0; i<balls.length; i++) {
