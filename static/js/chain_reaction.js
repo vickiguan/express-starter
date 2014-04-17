@@ -55,7 +55,8 @@ for (var j = 0; j < reactions.length; j++) {
                       reactionsObject= {
                         x:balls[i].x,
                         y:balls[i].y,
-                        r: 1
+                        r: 1,
+                        timer: 0
                       }
                       reactions.push(reactionsObject)
                      balls.splice(i,1);
@@ -103,9 +104,17 @@ for (var j = 0; j < reactions.length; j++) {
 };
 
       for (var i=0; i<reactions.length; i++) {
-      if (reactions[i].r<30) {
+        reactions[i].timer++
+        if (reactions[i].timer>200) {
+          reactions[i].r--
+        }
+      else if (reactions[i].r<30) {
         reactions[i].r++
         }
+       if (reactions[i].r===0) {
+       reactions.splice(i,1)
+       i--
+    }
        };
 
 
@@ -152,8 +161,8 @@ requestAnimationFrame(updateGame);
   var b0 = {
     x:e.pageX - $(this).offset().left,
     y:e.pageY - $(this).offset().top,
-    r: 1
-
+    r: 1,
+    timer: 0
 
 };
 
