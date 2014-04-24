@@ -5,12 +5,69 @@ $(document).ready(function() {
   var width = canvas.width;
   var height = canvas.height;
 
+
   // PUT STUFF HERE
 
   var numBalls = 10;
   var balls= [];
   var reactions=[];
+  var reacting= false;
+  var numReacted= 0
+  var curLevel= 0
+  var gameState= "menu"
+  var menuText= "Click to play!"
+  var levels = []; 
 
+
+  var lvl1 = {
+    num: 1,
+    minReactions:1,
+    numBalls: 5
+  }
+
+  var lvl2 = {
+    num: 2,
+    minReactions:2,
+    numBalls: 10
+  }
+
+    var lvl3 = {
+    num: 3,
+    minReactions:5,
+    numBalls: 20
+  }
+    var lvl4 = {
+    num: 4,
+    minReactions:6,
+    numBalls: 24
+  }
+    var lvl5 = {
+    num: 5,
+    minReactions:8,
+    numBalls: 24
+  }
+    var lvl6 = {
+    num: 6,
+    minReactions:10,
+    numBalls: 30
+  }
+    var lvl7 = {
+    num: 7,
+    minReactions:15,
+    numBalls: 30
+  }
+    var lvl8 = {
+    num: 8,
+    minReactions: 10,
+    numBalls: 20
+  }
+    var lvl9 = {
+    num: 9,
+    minReactions:30,
+    numBalls: 50
+  }
+
+levels.push(lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9)
 
  for(i=0; i<numBalls; i++) {
  
@@ -36,9 +93,21 @@ balls.push(b0);
 
 
 
-  // Run an interation of the game
+  // an interation of the game
   var updateGame = function() {
+    
+    context.fillStyle='white'
+    context.fillRect(rect.x, rect.y, rect.w, rect.h)
+    context.fill();
+    
 
+if (gameState=== "menu") {
+   context.fillStyle="green"
+context.font = "20px Arial"
+context.fillText(menuText, 265,200)
+} 
+
+else if (gameState==="playing") {
 
 for (var j = 0; j < reactions.length; j++) {
 
@@ -50,6 +119,7 @@ for (var j = 0; j < reactions.length; j++) {
                var dist = Math.sqrt(xdiff * xdiff + ydiff * ydiff)
                if (dist<balls[i].r+reactions[j].r) {
                  collided=true
+                 numReacted=1
             }
                     if (collided===true) {
                       reactionsObject= {
@@ -74,10 +144,6 @@ for (var j = 0; j < reactions.length; j++) {
 
   for (var i=0; i<balls.length; i++) {
 
-    context.fillStyle='white'
-    context.fillRect(rect.x, rect.y, rect.w, rect.h)
-    context.fill();
-    
 
 
     balls[i].x += balls[i].vx
@@ -143,12 +209,35 @@ for (var i =0; i<reactions.length; i++) {
   };
 
 
+context.fillStyle= "blue"
+context.font = "20px Arial"
+context.fillText("Reactions:"+reactions.length, 20,20)
+
+};
+
+if (reacting===true && reactions.length===0) {
+  menuText= "Game Over! You reacted "+(numBalls-balls.length)+" balls!"
+  gameState="menu"
+}
 
 requestAnimationFrame(updateGame);
 
  }
   // Handle a canvas click event
   $('#game_canvas').click(function(e) {
+
+if (gameState==="menu") {
+  gameState="playing"
+  reacting = false
+  numReacted= 0
+
+}
+
+else if (gameState==="playing" && reacting===false) {
+
+
+  if (reacting===false)  {
+    reacting=true
     // Find the mouse x and y relative to the top-left corner of the canvas
     var x = e.pageX - $(this).offset().left;
     var y = e.pageY - $(this).offset().top;
@@ -164,13 +253,14 @@ requestAnimationFrame(updateGame);
     r: 1,
     timer: 0
 
+}
 };
 
 
 reactions.push(b0);
  };
 
-
+};
 
   });
 
