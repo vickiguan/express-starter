@@ -14,6 +14,7 @@ $(document).ready(function() {
   var reacting= false;
   var numReacted= 0
   var curLevel= 0
+  var levelText= "Level 1- React 1 out of 5 balls!"
   var gameState= "menu"
   var menuText= "Click to play!"
   var levels = []; 
@@ -69,18 +70,7 @@ $(document).ready(function() {
 
 levels.push(lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9)
 
- for(i=0; i<numBalls; i++) {
- 
-  var b0 = {
-    x: width*Math.random(),
-    y: height*Math.random(),
-    r: 50*Math.random(),
-    vx:10*Math.random()-Math.random(),
-    vy:10*Math.random()-Math.random()
-};
 
-balls.push(b0);
- }
 
  
   var rect = {};
@@ -118,8 +108,8 @@ for (var j = 0; j < reactions.length; j++) {
                var ydiff= balls[i].y-reactions[j].y;
                var dist = Math.sqrt(xdiff * xdiff + ydiff * ydiff)
                if (dist<balls[i].r+reactions[j].r) {
-                 collided=true
-                 numReacted=1
+                 collided=true;
+                 numReacted++;
             }
                     if (collided===true) {
                       reactionsObject= {
@@ -134,6 +124,7 @@ for (var j = 0; j < reactions.length; j++) {
         };
 
         }
+
 
 
 }
@@ -206,19 +197,37 @@ for (var i =0; i<reactions.length; i++) {
     context.fillStyle='#77D5F2'
     context.fill();
     context.closePath() 
-  };
+  }
 
 
 context.fillStyle= "blue"
 context.font = "20px Arial"
-context.fillText("Reactions:"+reactions.length, 20,20)
+context.fillText("Reactions:"+numReacted, 20,20)
+
+context.fillStyle= "blue"
+context.font = "20px Arial"
+context.fillText(levelText, 190,20)
+
+if (reacting===true && reactions.length===0) {
+  menuText= "Game Over! You reacted "+numReacted+" balls!";
+  if (numReacted>=levels[curLevel].minReactions) {
+    curLevel++;
+    menuText= "~you win this round~";
+    gameState="menu";
+    if (curLevel===levels.length) {
+      curLevel=0
+      menuText="You did it! You beat the entire game!"
+    }
+    }
+  else if (numReacted<levels[curLevel].minReactions) {
+    menuText="you lose. continue?";
+    gameState="menu";
+  }
+};
 
 };
 
-if (reacting===true && reactions.length===0) {
-  menuText= "Game Over! You reacted "+(numBalls-balls.length)+" balls!"
-  gameState="menu"
-}
+
 
 requestAnimationFrame(updateGame);
 
@@ -227,9 +236,26 @@ requestAnimationFrame(updateGame);
   $('#game_canvas').click(function(e) {
 
 if (gameState==="menu") {
+
   gameState="playing"
   reacting = false
   numReacted= 0
+levelText= "Level " + (curLevel+1) + " - React " + levels[curLevel].minReactions + " out of " + levels[curLevel].numBalls + " balls!" ;
+
+   balls.splice(0,balls.length)
+
+    for(var k=0; k<levels[curLevel].numBalls; k++) {
+ 
+  var b0 = {
+    x: width*Math.random(),
+    y: height*Math.random(),
+    r: 50*Math.random(),
+    vx:7*Math.random()-Math.random(),
+    vy:7*Math.random()-Math.random()
+};
+
+balls.push(b0);
+ }
 
 }
 
